@@ -19,7 +19,7 @@ If you find a bug, please open an issue with supporting configuration to reprodu
 ### Modified
 
 - `var.tags` was previously a list of maps of `key`, `value`, and `propagate_at_launch`. It has been changed to a standard map of `key` = `value` pairs
-- The use of `for_each = lookup(map.value, "attr", null) != null ? [map.value.attr] : []` pattern has been replaced with a more concise, readable pattern of `for_each = can(map.value.attr) ? [map.value.attr] : []`. This is a no-op change for users
+- The use of `for_each = try(map.value.attr, null) != null ? [map.value.attr] : []` pattern has been replaced with a more concise, readable pattern of `for_each = can(map.value.attr) ? [map.value.attr] : []`. This is a no-op change for users
 
 ### Variable and output changes
 
